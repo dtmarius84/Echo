@@ -47,7 +47,7 @@ module.exports = {
             return interaction.reply({ content: 'You need to input a valid text channel', ephemeral: true });
           }
     
-        console.log(`"${interaction.user.tag}" redirected shiina to "${channel.id} : ${channel.name}"`);
+        console.log(`"${interaction.user.tag}" redirected echo to "${channel.id} : ${channel.name}"`);
         } catch (error) {
           console.error('Error:', error);
         } 
