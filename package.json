@@ -2,7 +2,7 @@
   "dependencies": {
     "discord.js": "^14.7.1",
     "mongodb": "^5.2.0",
-    "mongoose": "^7.0.3"
+    "mongoose": "^7.8.9"
   },
 
   "title": "Item",
