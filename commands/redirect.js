@@ -18,7 +18,7 @@ module.exports = {
 
           const client = new MongoClient(url);
           await client.connect();
-          const db = client.db('shiina');
+          const db = client.db('echo');
           const channels = db.collection('channelid');
           const { updateChannelValuesArray } = require('../index');
 
