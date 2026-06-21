@@ -1,0 +1,40 @@
+const {SlashCommandBuilder} = require('discord.js');
+const { MongoClient } = require('mongodb');
+require('dotenv').config({path: './dc_bots/shiina/.env'});
+const url = process.env.DB_PASSWORD;
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('unredirect')
+        .setDescription('unredirect the bot from any channel')
+        .setDefaultMemberPermissions(0x8),
+
+async execute(interaction) {
+        const server = interaction.guild;
+        try {
+
+            const client = new MongoClient(url);
+            await client.connect();
+            const db = client.db('shiina');
+            const channels = db.collection('channelid');
+            const { updateChannelValuesArray } = require('../index');
+            const channelDocument = await channels.findOne({ "serverid": server.id });
+
+            if (channelDocument) {
+                  await channels.deleteOne({
+                      serverid: server.id,
+                  });
+              } 
+            updateChannelValuesArray();
+
+            interaction.reply({
+                content: `You have unredirected the bot`,
+                ephemeral: true,
+              });
+
+            console.log(`"${interaction.user.tag}" unredirected shiina`);
+            } catch (error) {
+              console.error('Error:', error);
+            }
+        },
+};

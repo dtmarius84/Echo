@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "mongodb": "^5.2.0",
+    "mongoose": "^7.0.3"
+  },
+
+  "title": "Item",
+  "required": ["_id", "name", "quantity", "reviews"],
+  "properties": {
+    "_id": { "bsonType": "objectId" },
+    "name": { "bsonType": "string" },
+    "quantity": { "bsonType": "int" },
+    "reviews": {
+      "bsonType": "array",
+      "items": {
+        "bsonType": "object",
+        "required": ["username", "comment"],
+        "properties": {
+          "username": { "bsonType": "string" },
+          "comment": { "bsonType": "string" }
+        }
+      }
+    }
+  }
+}
