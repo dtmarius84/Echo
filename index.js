@@ -28,7 +28,7 @@ for (const file of commandFiles) {
 }
 
 client.once(Events.ClientReady, async () => {
-  console.log('shiina is online');
+  console.log('echo is online');
 });
 
 client.on(Events.InteractionCreate, async interaction => {
@@ -49,7 +49,7 @@ client.on(Events.InteractionCreate, async interaction => {
 const { MongoClient } = require('mongodb');
 const url = process.env.DB_PASSWORD;
 const dbclient = new MongoClient(url);
-const db = dbclient.db('shiina');
+const db = dbclient.db('echo');
 dbclient.connect();
 const dbmessages = db.collection('msgs');
 
