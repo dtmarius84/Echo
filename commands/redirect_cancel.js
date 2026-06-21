@@ -16,7 +16,7 @@ async execute(interaction) {
 
             const client = new MongoClient(url);
             await client.connect();
-            const db = client.db('shiina');
+            const db = client.db('echo');
             const channels = db.collection('channelid');
             const { updateChannelValuesArray } = require('../index');
             const channelDocument = await channels.findOne({ "serverid": server.id });
@@ -33,7 +33,7 @@ async execute(interaction) {
                 ephemeral: true,
               });
 
-            console.log(`"${interaction.user.tag}" unredirected shiina`);
+            console.log(`"${interaction.user.tag}" unredirected echo`);
             } catch (error) {
               console.error('Error:', error);
             }
