@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const {promises: fsPromises} = require('fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-require('dotenv').config({path:'./dc_bots/echo/.env'});
+require('dotenv').config({path: path.join(__dirname, '.env')});
 const token = process.env.TOKEN;
 
 const client = new Client
@@ -28,7 +28,7 @@ for (const file of commandFiles) {
 }
 
 client.once(Events.ClientReady, async () => {
-  console.log('echo is online');
+  console.log('shiina is online');
 });
 
 client.on(Events.InteractionCreate, async interaction => {
@@ -49,7 +49,7 @@ client.on(Events.InteractionCreate, async interaction => {
 const { MongoClient } = require('mongodb');
 const url = process.env.DB_PASSWORD;
 const dbclient = new MongoClient(url);
-const db = dbclient.db('echo');
+const db = dbclient.db('shiina');
 dbclient.connect();
 const dbmessages = db.collection('msgs');
 

@@ -1,4 +1,5 @@
 const {SlashCommandBuilder, userMention} = require('discord.js');
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ping')

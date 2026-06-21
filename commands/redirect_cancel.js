@@ -1,6 +1,7 @@
 const {SlashCommandBuilder} = require('discord.js');
 const { MongoClient } = require('mongodb');
-require('dotenv').config({path: './dc_bots/shiina/.env'});
+const path = require('node:path');
+require('dotenv').config({path: path.join(__dirname, '.env')});
 const url = process.env.DB_PASSWORD;
 
 module.exports = {
