@@ -9,7 +9,7 @@ async execute(interaction) {
     const bot = interaction.client.user;
     const embed = new EmbedBuilder()
         .setColor(0xF1C40F)
-        .setTitle('shiina-chan')
+        .setTitle('Echo')
         .setThumbnail(bot.avatarURL())
         .setDescription( italic('a silly talkative bot that learns from your messages (ping it)') )
         .addFields(
